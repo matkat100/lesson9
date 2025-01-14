@@ -1,10 +1,12 @@
 ﻿#ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
+#include <iostream>
 
-template <typename T> int compare(const T& a, const T& b)
+template <typename T>
+int compare(const T& a, const T& b) 
 {
-    if (a > b)
+    if (a > b) 
     {
         return 1;
     }
@@ -18,7 +20,8 @@ template <typename T> int compare(const T& a, const T& b)
     }
 }
 
-template <typename T> void bubbleSort(T arr[], const int size) 
+template <typename T>
+void bubbleSort(T arr[], const int size)
 {
     for (int i = 0; i < size - 1; i++) 
     {
@@ -32,4 +35,15 @@ template <typename T> void bubbleSort(T arr[], const int size)
     }
 }
 
-#endif 
+template <typename T>
+
+void printArray(const T arr[], const int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+#endif
