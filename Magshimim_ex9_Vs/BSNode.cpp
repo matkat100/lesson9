@@ -141,7 +141,6 @@ int BSNode::getDepth(const BSNode& root) const
         return 1 + root._left->getDepth(*this);
     }
 
-    // אם הערך של הצומת גדול מהשורש, נחפש בצד הימני
     if (_data > root._data && root._right != nullptr)
     {
         return 1 + root._right->getDepth(*this);
@@ -152,7 +151,6 @@ int BSNode::getDepth(const BSNode& root) const
 
 int BSNode::getCurrNodeDistFromInputNode(const BSNode* node) const
 {
-    // אם הצומת הרוחני לא קיים
     if (node == nullptr)
     {
         return -1;
