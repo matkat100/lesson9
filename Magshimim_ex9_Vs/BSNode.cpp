@@ -130,7 +130,6 @@ int BSNode::getHeight() const
 
 int BSNode::getDepth(const BSNode& root) const
 {
-    // אם הצומת הוא השורש, העומק שלו הוא 0
     if (this == &root)
     {
         return 0;
@@ -139,53 +138,49 @@ int BSNode::getDepth(const BSNode& root) const
 
     if (_data < root._data && root._left != nullptr)
     {
-        return 1 + root._left->getDepth(*this);  // חיפוש בעץ השמאלי
+        return 1 + root._left->getDepth(*this);
     }
 
     // אם הערך של הצומת גדול מהשורש, נחפש בצד הימני
     if (_data > root._data && root._right != nullptr)
     {
-        return 1 + root._right->getDepth(*this);  // חיפוש בעץ הימני
+        return 1 + root._right->getDepth(*this);
     }
 
-    return -1; // אם הצומת לא נמצא, כלומר לא קיים בעץ
+    return -1;
 }
 
-// פונקציית עזר לחישוב המרחק בין צומת מסוים לצומת קלט
 int BSNode::getCurrNodeDistFromInputNode(const BSNode* node) const
 {
     // אם הצומת הרוחני לא קיים
     if (node == nullptr)
     {
-        return -1; // שגיאה במקרה של צומת ריק
+        return -1;
     }
 
-    // אם מצאנו את הצומת
     if (_data == node->_data)
     {
         return 0;
     }
 
-    // אם הערך של הצומת קטן מהצומת שנמצא, נמשיך לעץ השמאלי
     if (node->_data < _data && _left != nullptr)
     {
         int leftDist = _left->getCurrNodeDistFromInputNode(node);
-        if (leftDist != -1)  // אם הצומת נמצא בעץ השמאלי
+        if (leftDist != -1)
         {
             return 1 + leftDist;
         }
     }
 
-    // אם הערך של הצומת גדול מהצומת שנמצא, נמשיך לעץ הימני
     if (node->_data > _data && _right != nullptr)
     {
         int rightDist = _right->getCurrNodeDistFromInputNode(node);
-        if (rightDist != -1)  // אם הצומת נמצא בעץ הימני
+        if (rightDist != -1) 
         {
             return 1 + rightDist;
         }
     }
 
-    return -1; // צומת לא נמצא בעץ
+    return -1; 
 }
 
