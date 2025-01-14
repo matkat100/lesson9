@@ -1,20 +1,38 @@
-// Magshimim_les9_lastEx.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+#include "BSNode.hpp"
 #include <iostream>
+#include <string>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int intArr[15] = { 6, 2, 8, 3, 5, 9, 6, 1, 7, 4, 10, 12, 15, 14, 13 };
+    std::string strArr[15] = { "apple" , "cherry", "banana",  "date", "grape", "fig", "honeydew", "kiwi", "lemon", "mango", "elderberry","nectarine", "orange", "pear"};
+    std::cout << "Array ints: ";
+    for (int i = 0; i < 15; ++i) 
+    {
+        std::cout << intArr[i] << " ";
+    }
+    std::cout << "\n";
+    std::cout << "Array strings: ";
+    for (int i = 0; i < 15; ++i) 
+    {
+        std::cout << strArr[i] << " ";
+    }
+    std::cout << "\n";
+    BSNode<int> bs(intArr[0]);
+    for (int i = 1; i < 15; ++i) 
+    {
+        bs.insert(intArr[i]);
+    }
+    BSNode<std::string> bs2(strArr[0]);
+    for (int i = 1; i < 15; ++i) 
+    {
+        bs2.insert(strArr[i]);
+    }
+    std::cout << "Sorted ints tree: ";
+    bs.printNodes();
+    std::cout << "\n";
+    std::cout << "Sorted strings tree: ";
+    bs2.printNodes();
+    std::cout << "\n";
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

@@ -182,3 +182,16 @@ int BSNode::getCurrNodeDistFromInputNode(const BSNode* node) const
     return -1; 
 }
 
+void BSNode::printNodes() const
+{
+    if (_left != nullptr)
+    {
+        _left->printNodes();
+    }
+    std::cout << _data;
+    if (_right != nullptr)
+    {
+        _right->printNodes();
+    }
+}
+
